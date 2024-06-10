@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gray-900`}>
-        <div className="container mx-auto px-12 flex flex-col justify-between">
+        <div className="container mx-auto px-12 flex flex-col justify-between min-h-screen">
           <Navbar />
           {children}
           <Footer />
