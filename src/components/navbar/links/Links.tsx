@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import NavLink from "./navLink/navLink";
+import Image from "next/image";
 
 const links = [
     { title: "Homepage", path: "/" },
@@ -31,7 +32,7 @@ const Links = () => {
                         ? (
                             <>
                                 {isAdmin && <NavLink link={{ title: "Admin", path: "/admin" }} />}
-                                <button className="font-bold p-2 cursor-pointer bg-white text-gray-900">Logout</button>
+                                <button className="font-semibold text-sm py-2 px-4 rounded-sm cursor-pointer bg-white text-gray-900">Logout</button>
                             </>
                         )
                         : (
@@ -39,7 +40,9 @@ const Links = () => {
                         )
                 }
             </div>
-            <button onClick={() => setOpen((prev) => !prev)} className="cursor-pointer block md:hidden">Menu</button>
+            <button onClick={() => setOpen((prev) => !prev)} className="cursor-pointer block md:hidden">
+                <Image src="/menu.png" alt="" width={30} height={30} />
+            </button>
             {
                 open && <div className="mobileLinks md:hidden bg-gray-900 absolute top-24 w-1/2 right-0 flex flex-col items-center justify-center g-2 overflow-hidden text-white" style={{
                     height: "calc(100vh - 96px)",

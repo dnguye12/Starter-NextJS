@@ -9,7 +9,7 @@ const NavLink = ({ link }: { link: { title: string, path: string } }) => {
     return (
         <Link 
         href={link.path} 
-        className={` p-2 text-center rounded-2xl min-w-24 font-medium ${pathName === link.path ? 'bg-white text-gray-900' : ''}`}
+        className={` p-2 text-center rounded-2xl min-w-24 font-medium text-sm ${pathName === link.path ? 'bg-white text-gray-900' : ''}`}
         >{link.title}
         </Link>
     )
