@@ -1,5 +1,7 @@
 import PostCard from "@/components/postCard/postCard";
 
+import { getPosts } from "@/lib/data"
+
 const getData = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
 
@@ -11,7 +13,8 @@ const getData = async () => {
 }
 
 const BlogPage = async () => {
-    const posts = await getData()
+    //const posts = await getData()
+    const posts = await getPosts();
     return (
         <div className="flex flex-wrap g-5">
             {
@@ -19,7 +22,9 @@ const BlogPage = async () => {
                     "userId": number,
                     "id": number,
                     "title": string,
-                    "body": string
+                    "desc": string,
+                    "slug": string,
+                    "img"?: string
                 }) => {
                     return (
                         <div key={post.id} className=" w-full md:w-1/2 xl:w-1/3">

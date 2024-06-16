@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import PostUser from "@/components/postUser/postUser";
 import { Suspense } from "react";
+import { getPost } from "@/lib/data";
 
 const getData = async (slug: string) => {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`)
@@ -21,8 +22,10 @@ const SinglePostPage = async ({ params }: { params: { slug: string } }) => {
         "userId": number,
         "id": number,
         "title": string,
-        "body": string
-    } = await getData(slug);
+        "desc": string,
+        "slug": string,
+        "img"?: string
+    } = await getPost(slug);
 
     return (
         <div className=" flex gap-24">
@@ -45,7 +48,7 @@ const SinglePostPage = async ({ params }: { params: { slug: string } }) => {
                         </span>
                     </div>
                 </div>
-                <div className=" text-xl text-white">{post.body}</div>
+                <div className=" text-xl text-white">{post.desc}</div>
             </div>
         </div>
     )

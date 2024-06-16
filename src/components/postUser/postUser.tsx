@@ -1,3 +1,5 @@
+import { getUser } from "@/lib/data";
+
 const getData = async (userId: number) => {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
 
@@ -9,7 +11,7 @@ const getData = async (userId: number) => {
 }
 
 const PostUser = async ({userId} : {userId: number}) => {
-    const user = await getData(userId);
+    const user = await getUser(userId);
 
     return (
         <div className="flex flex-col gap-2">
